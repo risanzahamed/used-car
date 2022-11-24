@@ -3,36 +3,72 @@
       "category_id": "1",
       "categoryName": "BMW",
       "model": "BMW 6 SERIES 2014 ",
-      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/Convertibles.png"
+      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/Convertibles.png",
+      "location":"Dhaka, Mirpur - 2",
+      "originalPrice":"60,00,000",
+      "resalePrice":"55,00,000",
+      "yearsOfUse":"6 months, 15 days",
+      "postDate":"26 may 2022",
+      "description":"My Model is BMW 6 SERIES 2014. I was buy this 6 months, 15 days ago. I want sell this because i want to buy a new model car. "
     },
     {
       "category_id": "1",
       "categoryName": "BMW",
       "model": "BMW FOCUS TITANIUM 2015",
-      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q3.png"
+      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q3.png",
+      "location":"Comilla, Rajbari Area",
+      "originalPrice":"70,00,000",
+      "resalePrice":"68,00,000",
+      "yearsOfUse":"2 months, 07 days",
+      "postDate":"19 december 2021",
+      "description":"My Model is BMW FOCUS TITANIUM 2015. I was buy this 2 months, 07 days ago. I want sell my car  because i need money and also buy a basic car"
     },
     {
       "category_id": "2",
       "categoryName": "Hyundai",
       "model": "Hyundai 3 2015",
-      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q6.png"
+      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q6.png",
+      "location":"Feni, Jamal Khan Area",
+      "originalPrice":"45,00,000",
+      "resalePrice":"35,00,000",
+      "yearsOfUse":"8 month, 03 days",
+      "postDate":"15 april 2022",
+      "description":"My Model is Hyundai 3 2015. I was buy this 8 month, 03 days ago. I want sell this because i want to buy a new model car."
     },
     {
       "category_id": "2",
       "categoryName": "Hyundai",
       "model": "Hyundai OPTIMA 2015",
-      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q5.png"
+      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q5.png",
+      "location":"Chottogram, Bohaddarhat",
+      "originalPrice":"65,00,000",
+      "resalePrice":"48,00,000",
+      "yearsOfUse":"3 Month, 10 days",
+      "postDate":"01 march 2022",
+      "description":"My Model is Hyundai OPTIMA 2015. I was buy this 3 Month, 10 days ago. I want sell this because i want to buy a new model car."
     },
     {
       "category_id": "3",
       "categoryName": "Toyota",
-      "model": "Toyota NX HYBRID 2014 ",
-      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/SUVs.png"
+      "model": "Toyota NX HYBRID 2014",
+      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/SUVs.png",
+      "location":"Chottogram, Agrabad",
+      "originalPrice":"80,00,000",
+      "resalePrice":"36,00,000",
+      "yearsOfUse":"26 Month, 19 days",
+      "postDate":"10 may 2022",
+      "description":"My Model is Toyota NX HYBRID 2014. I was buy this 26 Month, 19 days ago. I want sell this because i want to buy a new model car."
     },
     {
       "category_id": "3",
       "categoryName": "Toyota",
       "model": "Toyota SILVERADO 1500 2015",
-      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/Pickup-Trucks.png"
+      "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/Pickup-Trucks.png",
+      "location":"Chottogram, Chowkbazar",
+      "originalPrice":"40,00,000",
+      "resalePrice":"30,00,000",
+      "yearsOfUse":"10 Month, 16 days",
+      "postDate":"16 june 2022",
+      "description":"My Model is Toyota SILVERADO 1500 2015. I was buy this 10 Month, 16 days ago. I want sell this because i want to buy a new model car."
     }
   ]

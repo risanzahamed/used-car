@@ -24,6 +24,7 @@ const CategoryCar = () => {
 
             <CarBookingModal
             carModel={carModel}
+            setcarModel={setcarModel}
             ></CarBookingModal>
         </div>
     );

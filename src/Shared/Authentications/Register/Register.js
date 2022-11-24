@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import  { AuthContext } from '../../../Contexts/AuthContext';
+import { AuthContext } from '../../../Contexts/AuthContext';
 
 const Register = () => {
-    const { createUser,updateName } = useContext(AuthContext)
+    const { createUser, updateName } = useContext(AuthContext)
     const navigate = useNavigate()
 
 
@@ -14,9 +14,10 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const buyer = form.buyer.value;
+        const seller = form.seller.value
 
-        console.log(name, email, password);
-
+        console.log(name, email, password, buyer, seller);
 
         createUser(email, password)
             .then(result => {
@@ -57,10 +58,26 @@ const Register = () => {
                                 <label className="text-sm font-bold text-gray-600 mb-1" for="email">Email Address</label>
                                 <input className="border rounded-md bg-white px-3 py-2" type="email" name="email" id="email" placeholder="Enter your Email Address" />
                             </div>
+
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
                                 <input className="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
                             </div>
+
+                            <div className="flex flex-col">
+                                <label className="text-sm font-bold text-gray-600 mb-1" for="password">Choose Your User Type</label>
+                                    <label className="label cursor-pointer">
+                                        <span className="label-text">Seller</span>
+                                        <input type="radio" name="seller" className="radio checked:bg-red-500" value='seller' />
+                                    </label>
+                                    <label className="label cursor-pointer">
+                                        <span className="label-text">Buyer</span>
+                                        <input type="radio" name="buyer" className="radio checked:bg-blue-500" 
+                                        value='buyer'
+                                        />
+                                    </label>
+                            </div>
+
                             <div className="flex justify-between text-sm">
                                 <div className="flex items-center space-x-2">
                                     <input className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="remember" id="remember" />

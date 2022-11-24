@@ -30,17 +30,18 @@ const router = createBrowserRouter([
       {
         path: "/Blog",
         element: <Blog />,
+        loader: ({params})=>fetch(`http://localhost:8000/category/${params.id}`)
       },
       {
         path: "/category/:id",
         element: <CategoryCar />,
-        loader: async({params}) => fetch(`http://localhost:8000/car-details/${params._id}`)
-        
+        loader: ({params})=>fetch(`http://localhost:8000/category/${params.id}`)
+
       },
       {
         path: "/our-cars",
         element: <OurCars />,
-        loader: async () =>  fetch('CarItems.json') 
+        loader: async () =>  fetch('http://localhost:8000/car-details/') 
       
       },
      

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CategoryCar from '../../CategoryCar/CategoryCar';
 import CategoryCard from './CategoryCard';
 
 const CarCategory = () => {

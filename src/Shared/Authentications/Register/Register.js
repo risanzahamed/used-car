@@ -17,7 +17,7 @@ const Register = () => {
         const buyer = form.buyer.value;
         const seller = form.seller.value
 
-        console.log(name, email, password, buyer, seller);
+        console.log(buyer, seller);
 
         createUser(email, password)
             .then(result => {
@@ -66,16 +66,14 @@ const Register = () => {
 
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-600 mb-1" for="password">Choose Your User Type</label>
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">Seller</span>
-                                        <input type="radio" name="seller" className="radio checked:bg-red-500" value='seller' />
-                                    </label>
-                                    <label className="label cursor-pointer">
-                                        <span className="label-text">Buyer</span>
-                                        <input type="radio" name="buyer" className="radio checked:bg-blue-500" 
-                                        value='buyer'
-                                        />
-                                    </label>
+                                <div className="flex items-center space-x-2">
+                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="buyer" id="buyer" />
+                                    <label >Buyer</label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="seller" id="seller" />
+                                    <label>Seller</label>
+                                </div>
                             </div>
 
                             <div className="flex justify-between text-sm">

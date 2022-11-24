@@ -3,7 +3,35 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContext';
 
+const Login = () => {
 
+    const { Userlogin, googleLogin } = useContext(AuthContext);
+
+    const navigate = useNavigate()
+
+    const handleSignIn = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        Userlogin(email, password)
+            .then(result => {
+                const user = result.user;
+                toast.success('User login Successfully!')
+                navigate('/')
+                console.log(user);
+                form.reset()
+
+            })
+            .catch(error => {
+                console.log(error)
+                toast.error('Something was wrong! Please try again!')
+                form.reset()
+            });
+    
+}
 
 
 

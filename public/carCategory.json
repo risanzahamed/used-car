@@ -1,0 +1,17 @@
+[
+    {
+        "category_id": "1",
+        "categoryName": "BMW",
+        "image": "https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/Convertibles.png"
+    },
+    {
+        "category_id": "2",
+        "categoryName": "Hyundai",
+        "image": "https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q1-370x208.png"
+    },
+    {
+        "category_id": "3",
+        "categoryName": "Toyota",
+        "image": "https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q4.png"
+    }
+]

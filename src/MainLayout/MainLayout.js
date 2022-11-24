@@ -5,6 +5,7 @@ import CategoryCar from "../Pages/CategoryCar/CategoryCar";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import OurCars from "../Pages/OurCars/OurCars";
+import PrivateRoutes from "../Routes/PrivateRoutes";
 import Login from "../Shared/Authentications/Login/Login";
 import Register from "../Shared/Authentications/Register/Register";
 import Root from "./Root/Root";
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/category/:id",
-        element: <CategoryCar />,
+        element: <PrivateRoutes><CategoryCar /></PrivateRoutes>,
         loader: ({params})=>fetch(`http://localhost:8000/category/${params.id}`)
 
       },

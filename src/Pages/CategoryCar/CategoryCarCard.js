@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CategoryCarCard = ({car}) => {
+const CategoryCarCard = ({car, setcarModel}) => {
     const {image, model , categoryName} = car
     return (
         <div>
@@ -21,6 +21,7 @@ const CategoryCarCard = ({car}) => {
                     <label 
                     htmlFor="car-modal"
                     className="btn"
+                    onClick={()=>setcarModel(car)}
                     
                     >Book Now</label>
                 </div>

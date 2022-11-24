@@ -5,8 +5,6 @@ const ErrorPage = () => {
     const error = useRouteError()
     return (
         <div className='flex align-middle items-center justify-center flex-wrap '>
-
-
             <div>
                 <img src="https://cdn.svgator.com/images/2022/01/404-page-animation-example.gif" alt="" />
 

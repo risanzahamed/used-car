@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import CarDashboardData from "../CarDashboard/CarDashboardData/CarDashboardData";
+import CarDashboardLayout from "../CarDashboardLayout/CarDashboardLayout";
 import About from "../Pages/About/About";
 import Blog from "../Pages/Blog/Blog";
 import CategoryCar from "../Pages/CategoryCar/CategoryCar";
@@ -31,21 +33,21 @@ const router = createBrowserRouter([
       {
         path: "/Blog",
         element: <Blog />,
-        loader: ({params})=>fetch(`http://localhost:8000/category/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:8000/category/${params.id}`)
       },
       {
         path: "/category/:id",
         element: <PrivateRoutes><CategoryCar /></PrivateRoutes>,
-        loader: ({params})=>fetch(`http://localhost:8000/category/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:8000/category/${params.id}`)
 
       },
       {
         path: "/our-cars",
         element: <OurCars />,
-        loader: async () =>  fetch('http://localhost:8000/car-details/') 
-      
+        loader: async () => fetch('http://localhost:8000/car-details/')
+
       },
-     
+
       {
         path: '/login',
         element: <Login />
@@ -56,6 +58,17 @@ const router = createBrowserRouter([
       }
     ],
   },
+
+  {
+    path: '/dashboard',
+    element: <PrivateRoutes><CarDashboardLayout/></PrivateRoutes>,
+    children: [
+      {
+        path: '/dashboard',
+        element: <CarDashboardData/>
+      }
+    ]
+  }
 ]);
 
 export default router

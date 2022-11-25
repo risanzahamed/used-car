@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthContext';
 import toast from 'react-hot-toast';
-import Loading from '../../Shared/Loading/Loading';
 
 
 

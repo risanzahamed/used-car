@@ -1,11 +1,46 @@
 import React from 'react';
-import FlagIteams from '../../CarDashboard/FlagIteams/FlagIteams';
+import toast from 'react-hot-toast';
 
-const CategoryCarCard = ({ car, setcarModel, setFlag }) => {
-    const { image, model, categoryName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = car
+const FlagIteams = ({flag}) => {
+
+    const { image, model, categoryName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = flag
+
+
+    const flagedCollection = {
+        image,
+        model,
+        categoryName,
+        description, 
+        resalePrice, 
+        originalPrice, 
+        postDate, 
+        yearsOfUse, 
+        location
+    }
+
+    fetch('http://localhost:8000/flag-items', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(flagedCollection)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged > 0) {
+                    toast.success('Car Flaged Successfull')
+                    console.log(data);
+                    return true
+                }
+                else {
+                    toast.success(data.message)
+                }
+            })
     return (
         <div>
-            <div className="px-4 py-16 shadow-md rounded-md mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            {/* <h2>Flaged Item</h2> */}
+
+            {/* <div className="px-4 py-16 shadow-md rounded-md mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
 
                 <div>
                     <div className="max-w-md sm:mx-auto sm:text-center">
@@ -29,26 +64,13 @@ const CategoryCarCard = ({ car, setcarModel, setFlag }) => {
                         <p className="mb-3 text-left text-sm text-gray-900">
                             {description}
                         </p>
-
-                        <div className='flex mt-10 justify-between'>
-                            <label
-                                htmlFor="car-modal"
-                                className="btn"
-                                onClick={() => setcarModel(car)}
-
-                            >Book Now</label>
-
-                            <button 
-                            className='btn btn-secondary'
-                            onClick={() => setFlag(car)}
-                            >Report To Admin</button>
-                        </div>
                     </div>
 
                 </div>
-            </div>
+            </div> */}
+
         </div>
     );
 };
 
-export default CategoryCarCard;
+export default FlagIteams;

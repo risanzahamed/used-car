@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContext';
+import useToken from '../../../jwtHook/jwtHook';
 
 const Register = () => {
     const { createUser, updateName } = useContext(AuthContext)
     const navigate = useNavigate()
+    const [createdUserEmail , setCreatedUserEmail] = useState('')
+    const [token] = useToken(createdUserEmail)
 
+    if(token){
+        navigate('/')
+    }
 
     const handleRegister = event => {
         event.preventDefault()
@@ -23,8 +29,8 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+                saveUser(name, email, customer, seller)
                 toast.success('User signUp Successfully!')
-                navigate('/')
                 updateName(name)
                 console.log(user);
                 form.reset()
@@ -35,6 +41,28 @@ const Register = () => {
                 toast.error('Something was wrong! Please try again!')
                 form.reset()
             });
+    }
+
+    const saveUser = (name, email, customer, seller) => {
+        const user = { name, email, customer, seller }
+        fetch('http://localhost:8000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('data saved', data);
+                setCreatedUserEmail(email)
+
+            })
+    }
+
+    const getUserToken = email => {
+
     }
 
     return (
@@ -67,22 +95,22 @@ const Register = () => {
                             <div className="flex-col hidden">
                                 <label className="text-sm font-bold text-gray-600 mb-1" for="password">Choose Your User Type</label>
                                 <div className="flex items-center space-x-2">
-                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="customer" value='customer' id="customer" />
+                                    <input className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="customer" value='customer' id="customer" />
                                     <label>customer</label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="seller" id="seller" value='seller' />
+                                    <input className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="seller" id="seller" value='seller' />
                                     <label>Seller</label>
                                 </div>
                             </div>
 
                             <div>
 
-                                <input className='m-2' type="radio" name="customer" id="customer" value='customer'  /> 
+                                <input className='m-2' type="radio" name="customer" id="customer" value='customer' />
                                 <label htmlFor="customer">CUSTOMER</label>
-                                
-                                <input className='m-2' type="radio" name="seller" id="seller" value='seller' /> 
-                                <label  htmlFor="seller" >Seller</label>
+
+                                <input className='m-2' type="radio" name="seller" id="seller" value='seller' />
+                                <label htmlFor="seller" >Seller</label>
 
                             </div>
 

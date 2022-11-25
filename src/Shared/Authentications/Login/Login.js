@@ -1,13 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthContext';
+import useToken from '../../../jwtHook/jwtHook';
 
 const Login = () => {
 
     const { Userlogin, googleLogin } = useContext(AuthContext);
 
     const navigate = useNavigate()
+    const [loginUserToken, setLoginUserToken] = useState('')
+    const [token] = useToken(loginUserToken)
+
+    if(token){
+        navigate('/')
+    }
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -20,7 +27,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 toast.success('User login Successfully!')
-                navigate('/')
+                setLoginUserToken(email)
                 console.log(user);
                 form.reset()
 

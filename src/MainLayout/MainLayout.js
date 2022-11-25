@@ -1,5 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllUsers from "../CarDashboard/AllUsers/AllUsers";
 import CarDashboardData from "../CarDashboard/CarDashboardData/CarDashboardData";
+import FlagedItemData from "../CarDashboard/FlagedItemData/FlagedItemData";
+import FlagIteams from "../CarDashboard/FlagIteams/FlagIteams";
 import MyBooking from "../CarDashboard/MyBooking/MyBooking";
 import CarDashboardLayout from "../CarDashboardLayout/CarDashboardLayout";
 import About from "../Pages/About/About";
@@ -67,7 +70,20 @@ const router = createBrowserRouter([
       {
         path:'/dashboard',
         element: <MyBooking/>
-      }
+      },
+      {
+        path:'/dashboard/flags',
+        element: <FlagIteams/>
+      },
+      {
+        path:'/dashboard/flaged',
+        element: <FlagedItemData/>,
+        loader: ()=> fetch('http://localhost:8000/flag-items')
+      },
+      {
+        path:'/dashboard/allusers',
+        element: <AllUsers/>,
+      },
     ]
   }
 ]);

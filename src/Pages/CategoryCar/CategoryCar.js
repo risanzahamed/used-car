@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import FlagIteams from '../../CarDashboard/FlagIteams/FlagIteams';
 import CarBookingModal from '../CarBookingModal/CarBookingModal';
 import CategoryCarCard from './CategoryCarCard';
 
@@ -7,6 +8,7 @@ const CategoryCar = () => {
     const car = useLoaderData()
     
     const [carModel, setcarModel] = useState({})
+    const [flag, setFlag] = useState(false)
 
     return (
         <div>
@@ -18,6 +20,7 @@ const CategoryCar = () => {
                         key={car._id}
                         car={car}
                         setcarModel={setcarModel}
+                        setFlag={setFlag}
                     ></CategoryCarCard>)
                 }
             </div>
@@ -26,6 +29,15 @@ const CategoryCar = () => {
             carModel={carModel}
             setcarModel={setcarModel}
             ></CarBookingModal>
+
+           {
+            flag &&  
+            <FlagIteams
+            key={flag._id}
+            flag={flag}
+            ></FlagIteams>
+           }
+           
         </div>
     );
 };

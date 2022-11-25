@@ -1,12 +1,14 @@
 import React from 'react';
-import FlagIteams from '../../CarDashboard/FlagIteams/FlagIteams';
 
-const CategoryCarCard = ({ car, setcarModel, setFlag }) => {
-    const { image, model, categoryName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = car
+const FlagedCard = ({ flag }) => {
+    const { image, model, categoryName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = flag
     return (
         <div>
             <div className="px-4 py-16 shadow-md rounded-md mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
 
+             {
+                image === null ? <></> : <>
+                
                 <div>
                     <div className="max-w-md sm:mx-auto sm:text-center">
                         <div className="flex items-center justify-center w-full mb-4 bg-indigo-50 ">
@@ -29,26 +31,15 @@ const CategoryCarCard = ({ car, setcarModel, setFlag }) => {
                         <p className="mb-3 text-left text-sm text-gray-900">
                             {description}
                         </p>
-
-                        <div className='flex mt-10 justify-between'>
-                            <label
-                                htmlFor="car-modal"
-                                className="btn"
-                                onClick={() => setcarModel(car)}
-
-                            >Book Now</label>
-
-                            <button 
-                            className='btn btn-secondary'
-                            onClick={() => setFlag(car)}
-                            >Report To Admin</button>
-                        </div>
                     </div>
-
                 </div>
+                
+                </>
+
+             }
             </div>
         </div>
     );
 };
 
-export default CategoryCarCard;
+export default FlagedCard;

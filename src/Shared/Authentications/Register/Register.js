@@ -14,10 +14,11 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const buyer = form.buyer.value;
-        const seller = form.seller.value
 
-        console.log(buyer, seller);
+        const customer = form.customer.value;
+        const seller = form.seller.value;
+
+        console.log(name, email, password, customer, seller);
 
         createUser(email, password)
             .then(result => {
@@ -63,17 +64,26 @@ const Register = () => {
                                 <label className="text-sm font-bold text-gray-600 mb-1" for="password">Password</label>
                                 <input className="border rounded-md bg-white px-3 py-2" type="password" name="password" id="password" placeholder="Enter your Password" />
                             </div>
-
-                            <div className="flex flex-col">
+                            <div className="flex-col hidden">
                                 <label className="text-sm font-bold text-gray-600 mb-1" for="password">Choose Your User Type</label>
                                 <div className="flex items-center space-x-2">
-                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="buyer" id="buyer" />
-                                    <label >Buyer</label>
+                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="customer" value='customer' id="customer" />
+                                    <label>customer</label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="seller" id="seller" />
+                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="seller" id="seller" value='seller' />
                                     <label>Seller</label>
                                 </div>
+                            </div>
+
+                            <div>
+
+                                <input className='m-2' type="radio" name="customer" id="customer" value='customer'  /> 
+                                <label htmlFor="customer">CUSTOMER</label>
+                                
+                                <input className='m-2' type="radio" name="seller" id="seller" value='seller' /> 
+                                <label  htmlFor="seller" >Seller</label>
+
                             </div>
 
                             <div className="flex justify-between text-sm">

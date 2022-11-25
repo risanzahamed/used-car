@@ -1,24 +1,22 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import Header from '../Shared/Header/Header';
 
 const CarDashboardLayout = () => {
     return (
         <div>
             <Header />
-            <div className="drawer drawer-mobile">
-                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+            <div className="drawer drawer-mobile max-w-screen-xl mx-auto">
+                <input id="carDashboardDrawer" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content pl-14">
                     <Outlet />
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-
                 </div>
                 <div className="drawer-side">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                    <label htmlFor="carDashboardDrawer" className="drawer-overlay"></label>
+                    <ul className="menu p-4 w-80 bg-slate-600 text-white text-xl font-medium">
 
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <li><Link>My Booking</Link></li>
+                        <li><Link>My Order</Link></li>
                     </ul>
 
                 </div>

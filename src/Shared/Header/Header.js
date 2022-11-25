@@ -29,6 +29,12 @@ const Header = () => {
                                 alt="Float UI logo"
                             />
                         </Link>
+
+                        <label tabIndex={0} htmlFor="carDashboardDrawer" className="btn btn-primary lg:hidden">
+                            Dashboard
+                        </label>
+
+
                         <div className="lg:hidden">
                             <button className="text-gray-700 p-3 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
                                 onClick={() => setState(!state)}
@@ -87,14 +93,15 @@ const Header = () => {
                                     user?.email ?
                                         <>
                                             <Link className='p-3' to='/Partners'><li>Partners</li></Link>
-                                            
-                                            <Link className='p-3' to='/Contact'><li>Contact</li></Link>
+
+                                            <Link className='p-3' to='/dashboard'><li>Dashboard</li></Link>
 
                                         </> : <></>
                                 }
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </nav>
         </div>

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import CarDashboardData from "../CarDashboard/CarDashboardData/CarDashboardData";
+import MyBooking from "../CarDashboard/MyBooking/MyBooking";
 import CarDashboardLayout from "../CarDashboardLayout/CarDashboardLayout";
 import About from "../Pages/About/About";
 import Blog from "../Pages/Blog/Blog";
@@ -64,8 +65,8 @@ const router = createBrowserRouter([
     element: <PrivateRoutes><CarDashboardLayout/></PrivateRoutes>,
     children: [
       {
-        path: '/dashboard',
-        element: <CarDashboardData/>
+        path:'/dashboard',
+        element: <MyBooking/>
       }
     ]
   }

@@ -30,7 +30,6 @@ const CarBookingModal = ({ carModel, setcarModel }) => {
             location
         }
 
-        console.log(carBooking);
 
 
         fetch('http://localhost:8000/car-bookings', {
@@ -44,7 +43,6 @@ const CarBookingModal = ({ carModel, setcarModel }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
                     toast.success('Your Selected Car is booking success')
                 }
@@ -63,7 +61,7 @@ const CarBookingModal = ({ carModel, setcarModel }) => {
                     <label htmlFor="car-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form onSubmit={handleCarBooking} className="flex flex-col w-96 mx-auto mt-4 mb-4 rounded  dark:text-gray-100 ng-untouched ng-pristine ng-valid">
 
-                        <img src={image} alt="" srcset="" />
+                        <img src={image} alt="" srcSet="" />
 
                         <input name='category' id="category" type="text" defaultValue={categoryName} readOnly placeholder='Full Name' className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 dark:text-gray-900 focus:dark:border-violet-400 focus:ring-violet-400 border input-bordered" />
 

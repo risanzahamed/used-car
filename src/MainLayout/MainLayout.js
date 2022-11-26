@@ -4,6 +4,8 @@ import CarDashboardData from "../CarDashboard/CarDashboardData/CarDashboardData"
 import FlagedItemData from "../CarDashboard/FlagedItemData/FlagedItemData";
 import FlagIteams from "../CarDashboard/FlagIteams/FlagIteams";
 import MyBooking from "../CarDashboard/MyBooking/MyBooking";
+import Payment from "../CarDashboard/Payment/Payment";
+import SellerMyProduct from "../CarDashboard/SellerMyProduct/SellerMyProduct";
 import CarDashboardLayout from "../CarDashboardLayout/CarDashboardLayout";
 import About from "../Pages/About/About";
 import Blog from "../Pages/Blog/Blog";
@@ -11,6 +13,7 @@ import CategoryCar from "../Pages/CategoryCar/CategoryCar";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import OurCars from "../Pages/OurCars/OurCars";
+import AdminRoute from "../Routes/AdminRoute";
 import PrivateRoutes from "../Routes/PrivateRoutes";
 import Login from "../Shared/Authentications/Login/Login";
 import Register from "../Shared/Authentications/Register/Register";
@@ -73,16 +76,23 @@ const router = createBrowserRouter([
       },
       {
         path:'/dashboard/flags',
-        element: <FlagIteams/>
+        element: <AdminRoute><FlagIteams/></AdminRoute>
       },
       {
         path:'/dashboard/flaged',
-        element: <FlagedItemData/>,
-        loader: ()=> fetch('http://localhost:8000/flag-items')
+        element: <AdminRoute><FlagedItemData/></AdminRoute>,
       },
       {
         path:'/dashboard/allusers',
-        element: <AllUsers/>,
+        element: <AdminRoute><AllUsers/></AdminRoute>,
+      },
+      {
+        path:'/dashboard/seller',
+        element: <SellerMyProduct></SellerMyProduct>,
+      },
+      {
+        path:'/dashboard/payment/:id',
+        element: <Payment></Payment>,
       },
     ]
   }

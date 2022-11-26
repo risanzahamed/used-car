@@ -5,11 +5,10 @@ import MyBookingCard from './MyBookingCard';
 
 const MyBooking = () => {
     const { user } = useContext(AuthContext)
-    console.log(user);
     
-    const url = `http://localhost:8000/car-bookings?email=${user.email}`
+    const url = `http://localhost:8000/car-bookings?email=${user?.email}`
 
-    const { data = [] } = useQuery({
+    const { data: car = [] } = useQuery({
         queryKey: ['car-bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(url, {
@@ -22,7 +21,7 @@ const MyBooking = () => {
         }
     })
 
-    console.log(data)
+    
 
     return (
         <div>
@@ -30,12 +29,12 @@ const MyBooking = () => {
 
             <div className='grid lg:grid-cols-2 gap-5 mt-5 grid-cols-1'>
             {
-                data.map(carbooked => <MyBookingCard
-                key={carbooked.id}
-                carbooked={carbooked}
-                ></MyBookingCard>
-                    
-               )
+                car && car.map(carbooked => <MyBookingCard
+                    key={carbooked._id}
+                    carbooked={carbooked}
+                    ></MyBookingCard>
+                        
+                   )
             }
             </div>
 

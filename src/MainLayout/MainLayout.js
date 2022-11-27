@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddProduct from "../CarDashboard/AddProduct/AddProduct";
 import AllUsers from "../CarDashboard/AllUsers/AllUsers";
 import CarDashboardData from "../CarDashboard/CarDashboardData/CarDashboardData";
 import FlagedItemData from "../CarDashboard/FlagedItemData/FlagedItemData";
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
         element: <Payment></Payment>,
         loader: ({params}) => fetch(`http://localhost:8000/booking/${params.id}`)
       },
+      {
+        path:'/dashboard/add-product',
+        element: <AddProduct/>
+      }
     ]
   }
 ]);

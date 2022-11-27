@@ -32,6 +32,7 @@ const CarDashboardLayout = () => {
                                 <li><Link to='/dashboard/flaged'>Flaged</Link></li>
                                 <li><Link to='/dashboard/allusers'>All Users</Link></li>
                                 <li><Link to='/dashboard/seller'>Seller</Link></li>
+                                <li><Link to='/dashboard/add-product'>Add A Product</Link></li>
 
 
                             </>

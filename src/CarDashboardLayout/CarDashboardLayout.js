@@ -3,11 +3,13 @@ import { Link, Outlet } from 'react-router-dom';
 import SellerMyProduct from '../CarDashboard/SellerMyProduct/SellerMyProduct';
 import { AuthContext } from '../Contexts/AuthContext';
 import useAdmin from '../Pages/UseAdmin/UseAdmin';
+import UseSeller from '../Pages/UseSeller/UseSeller';
 import Header from '../Shared/Header/Header';
 
 const CarDashboardLayout = () => {
     const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
+    const [isSeller] = UseSeller(user?.email)
     // console.log(registeredUser?.customer);
 
 
@@ -32,16 +34,23 @@ const CarDashboardLayout = () => {
                                 <li><Link to='/dashboard/flaged'>Flaged</Link></li>
                                 <li><Link to='/dashboard/allusers'>All Users</Link></li>
                                 <li><Link to='/dashboard/seller'>Seller</Link></li>
-                                <li><Link to='/dashboard/add-product'>Add A Product</Link></li>
-                                <li><Link to='/dashboard/my-product'>My Product</Link></li>
+                                
+                                
 
 
                             </>
                         }
 
-                        {/* {
-                            registeredUser?.customer && <li><Link to='/dashboard/customer'>My Product</Link></li> 
-                        } */}
+                        {
+                            isSeller && <>
+                            
+                            <li><Link to='/dashboard/add-product'>Add A Product</Link></li>
+                            <li><Link to='/dashboard/my-product'>My Product</Link></li>
+                            
+                            </>
+                        }
+
+                       
                     </ul>
 
                 </div>

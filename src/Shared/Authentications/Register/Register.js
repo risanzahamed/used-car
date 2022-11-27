@@ -29,6 +29,8 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 saveUser(name, email, customer, seller)
+                saveSeller(name, email, seller)
+                saveCustomer(name, email, customer)
                 toast.success('User signUp Successfully!')
                 updateName(name)
                 form.reset()
@@ -40,6 +42,8 @@ const Register = () => {
                 form.reset()
             });
     }
+
+    // All User Created
 
     const saveUser = (name, email, customer, seller) => {
         const user = { name, email, customer, seller }
@@ -55,6 +59,47 @@ const Register = () => {
             .then(data => {
                 setCreatedUserEmail(email)
 
+            })
+    }
+
+
+     // Seller Created
+
+    const saveSeller = (name, email, seller) => {
+        const user = { name, email, seller }
+        fetch('http://localhost:8000/seller', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedUserEmail(email)
+                toast.success('Seller created')
+            })
+    }
+
+
+
+     // Customer/Buyer Created
+
+    const saveCustomer = (name, email, customer) => {
+        const user = { name, email, customer }
+        fetch('http://localhost:8000/customer', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedUserEmail(email)
+                toast.success('Customer created')
             })
     }
 

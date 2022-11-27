@@ -8,9 +8,10 @@ const CheckoutForm = ({ carDetails }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [errorMessage, setErrorMessage] = useState('');
-    // const [isLoading, setIsLoading] = useState(false);
+    
     const { price, buyerName, phone, email } = carDetails
 
+    
 
 
     const handleSubmit = async (e) => {
@@ -35,12 +36,13 @@ const CheckoutForm = ({ carDetails }) => {
             console.log('[error]', error);
             setErrorMessage(error.message)
         } else {
+            console.log('[PaymentMethod]', paymentMethod);
             setErrorMessage(' ')
         }
 
-       
 
-        // const {paymentIntent, confirmedError} = await stripe.confirmCardPayment(
+
+        // const {paymentIntent, error : confirmedError} = await stripe.confirmCardPayment(
         //     clientSecret,
         //     {
         //       payment_method: {
@@ -53,8 +55,12 @@ const CheckoutForm = ({ carDetails }) => {
         //       },
         //     },
         //   );
+        //   if(confirmedError){
+        //     setErrorMessage(confirmedError.message)
+        //     return
+        //   }
+        //   console.log('paymetIntent',paymentIntent);
 
-          
 
     };
 
@@ -77,8 +83,8 @@ const CheckoutForm = ({ carDetails }) => {
                         },
                     }}
                 />
-                <button className='btn btn-primary mt-4' type="submit" 
-                disabled={!stripe }>
+                <button className='btn btn-primary mt-4' type="submit"
+                    disabled={!stripe}>
                     Pay
                 </button>
             </form>

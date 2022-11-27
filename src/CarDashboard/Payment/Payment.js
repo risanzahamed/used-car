@@ -4,7 +4,10 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from './CheckoutForm';
 
-const stripePromise = loadStripe('pk_test_51M5vi0CWY41z4WgMdFzCNybcNpfUfwr5UTGP6TwoBTs8BZJYqNdaE7fRQBULScdQ563RWNpO1Dc83gB3xXWEDQcv008unuqwyz');
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
+
+const key = process.env.REACT_APP_STRIPE_KEY
+console.log(key);
 console.log(stripePromise);
 const Payment = () => {
 
@@ -22,10 +25,8 @@ const Payment = () => {
                 <div>
                     <Elements stripe={stripePromise}>
                         <CheckoutForm 
-                        key={data._id}
                         carDetails = {data}
                         />
-                        
                     </Elements>
                 </div>
             </div>

@@ -17,6 +17,7 @@ import Home from "../Pages/Home/Home";
 import OurCars from "../Pages/OurCars/OurCars";
 import AdminRoute from "../Routes/AdminRoute";
 import PrivateRoutes from "../Routes/PrivateRoutes";
+import SellerRoute from "../Routes/SellerRoute";
 import Login from "../Shared/Authentications/Login/Login";
 import Register from "../Shared/Authentications/Register/Register";
 import Root from "./Root/Root";
@@ -99,7 +100,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/dashboard/add-product',
-        element: <AddProduct/>
+        element: <SellerRoute><AddProduct/></SellerRoute>
       },
       {
         path:'/dashboard/my-product',

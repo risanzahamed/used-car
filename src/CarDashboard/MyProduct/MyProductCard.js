@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MyProductCard = ({ product, setAdvertise }) => {
-    const { image, model, name, description, sellingPrice, originalPrice, postDate, yearsOfUse, location } = product
+    const { image, model,sellerName, name, description, sellingPrice, originalPrice, postDate, yearsOfUse, location } = product
 
     const handleAdvertise = e => {
         setAdvertise(product)
@@ -15,6 +15,7 @@ const MyProductCard = ({ product, setAdvertise }) => {
                     <div className="flex items-center justify-center w-full mb-4 bg-indigo-50 ">
                         <img src={image} alt="" srcSet="" />
                     </div>
+                    <h2 className='text-left mb-3 text-md font-semibold'>Seller Name: {sellerName}</h2>
                     <div className='flex lg:justify-between flex-wrap text-left py-4'>
                         <h6 className="mb-3 text-md font-semibold leading-5">Product Post Date : {postDate}</h6> <br />
                         <h6 className="mb-3 text-md font-semibold leading-5">Time of use : {yearsOfUse}</h6> <br />

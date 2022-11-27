@@ -86,14 +86,11 @@ const Header = () => {
                         <div className="flex-1">
                             <ul className="justify-center text-gray-600 items-center space-y-8 lg:flex lg:space-x-6 lg:space-y-0">
                                 <Link className='p-3' to='/'><li>Home</li></Link>
-                                <Link className='p-3' to='/about'><li>About</li></Link>
-                                <Link className='p-3' to='/our-cars'><li>Our Cars</li></Link>
+                                
                                 <Link className='p-3' to='/Blog'><li>Blog</li></Link>
                                 {
                                     user?.email ?
                                         <>
-                                            <Link className='p-3' to='/Partners'><li>Partners</li></Link>
-
                                             <Link className='p-3' to='/dashboard'><li>Dashboard</li></Link>
 
                                         </> : <></>

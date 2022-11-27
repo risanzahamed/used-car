@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 
 
 const CarBookingModal = ({ carModel, setcarModel }) => {
-    const { model, categoryName, resalePrice, image, location } = carModel
+    const { model, categoryName,category, resalePrice, image, location } = carModel
     const { user } = useContext(AuthContext)
 
     const handleCarBooking = (event) => {
@@ -63,7 +63,7 @@ const CarBookingModal = ({ carModel, setcarModel }) => {
 
                         <img src={image} alt="" srcSet="" />
 
-                        <input name='category' id="category" type="text" defaultValue={categoryName} readOnly placeholder='Full Name' className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 dark:text-gray-900 focus:dark:border-violet-400 focus:ring-violet-400 border input-bordered" />
+                        <input name='category' id="category" type="text" defaultValue={categoryName || category} readOnly placeholder='Full Name' className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 dark:text-gray-900 focus:dark:border-violet-400 focus:ring-violet-400 border input-bordered" />
 
                         <input name='model' id="model" type="text" defaultValue={model} readOnly placeholder='Full Name' className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 dark:text-gray-900 focus:dark:border-violet-400 focus:ring-violet-400 border input-bordered" />
 

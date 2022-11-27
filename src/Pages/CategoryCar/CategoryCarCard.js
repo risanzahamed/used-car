@@ -2,7 +2,7 @@ import React from 'react';
 import FlagIteams from '../../CarDashboard/FlagIteams/FlagIteams';
 
 const CategoryCarCard = ({ car, setcarModel, setFlag }) => {
-    const { image, model, categoryName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = car
+    const { image, model,sellerName, categoryName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = car
     return (
         <div>
             <div className="px-4 py-16 shadow-md rounded-md mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -12,6 +12,7 @@ const CategoryCarCard = ({ car, setcarModel, setFlag }) => {
                         <div className="flex items-center justify-center w-full mb-4 bg-indigo-50 ">
                             <img src={image} alt="" srcSet="" />
                         </div>
+                        <h2 className='text-left mb-3 text-md font-semibold leading-5'>Seller Name: {sellerName}</h2>
                         <div className='flex lg:justify-between flex-wrap text-left py-4'>
                             <h6 className="mb-3 text-md font-semibold leading-5">Product Post Date : {postDate}</h6> <br />
                             <h6 className="mb-3 text-md font-semibold leading-5">Time of use : {yearsOfUse}</h6> <br />

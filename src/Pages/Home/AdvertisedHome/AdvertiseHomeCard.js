@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Contexts/AuthContext';
 
 const AdvertiseHomeCard = ({ advertise,setcarModel, setFlag }) => {
 
-    const { image, model, category, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = advertise
+    const { user } = useContext(AuthContext)
+
+    const { image, model, category,sellerName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = advertise
 
     return (
         <div>
@@ -16,7 +19,10 @@ const AdvertiseHomeCard = ({ advertise,setcarModel, setFlag }) => {
                         <div className="flex items-center justify-center w-full mb-4 bg-indigo-50 ">
                             <img src={image} alt="" srcSet="" />
                         </div>
+
+                        <h2 className='text-left mb-3 text-md font-semibold'>{sellerName}</h2>
                         <div className='flex lg:justify-between flex-wrap text-left py-4'>
+                            
                             <h6 className="mb-3 text-md font-semibold leading-5">Product Post Date : {postDate}</h6> <br />
                             <h6 className="mb-3 text-md font-semibold leading-5">Time of use : {yearsOfUse}</h6> <br />
                             <h6 className="mb-3 text-md font-semibold leading-5">Location : {location}</h6>

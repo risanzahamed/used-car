@@ -4,12 +4,13 @@ import toast from 'react-hot-toast';
 const Advertise = ({ advertise }) => {
     const [adzvertise , setAdvertise] = useState({})
     console.log(advertise);
-    const { image, model, name, description, sellingPrice, originalPrice, postDate, yearsOfUse, location } = advertise
+    const { image, model,sellerName, name, description, sellingPrice, originalPrice, postDate, yearsOfUse, location } = advertise
 
     const advertisCollection = {
         image,
         model,
         name,
+        sellerName,
         description, 
         sellingPrice, 
         originalPrice, 

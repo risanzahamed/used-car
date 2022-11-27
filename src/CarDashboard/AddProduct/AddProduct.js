@@ -37,6 +37,7 @@ const AddProduct = () => {
                         postDate: data.postDate,
                         yearsOfUse: data.yearsOfUse,
                         image: imageData.data.url,
+                        sellerName: data.name
                     }
                    
 
@@ -66,6 +67,10 @@ const AddProduct = () => {
 
             <form onSubmit={handleSubmit(handleAddProduct)}>
                 <div className="max-w-md w-full mt-14 bg-white shadow rounded-lg p-7 space-y-6">
+                    <div className="flex flex-col">
+                        <label className="text-sm font-bold text-gray-600 mb-1" htmlFor="text">Type Your Name</label>
+                        <input {...register("name")} className="border rounded-md bg-white px-3 py-2" type="text" id="text" required />
+                    </div>
                     <div className="flex flex-col">
                         <label className="text-sm font-bold text-gray-600 mb-1" htmlFor="text">Product Name</label>
                         <input {...register("productName")} className="border rounded-md bg-white px-3 py-2" type="text" id="text" required />

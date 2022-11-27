@@ -1,6 +1,7 @@
 [
     {
       "category_id": "1",
+      "sellerName": "Risan Ahamed",
       "categoryName": "BMW",
       "model": "BMW 6 SERIES 2014 ",
       "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/Convertibles.png",
@@ -13,6 +14,7 @@
     },
     {
       "category_id": "1",
+      "sellerName": "Risan Ahamed",
       "categoryName": "BMW",
       "model": "BMW FOCUS TITANIUM 2015",
       "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q3.png",
@@ -25,6 +27,7 @@
     },
     {
       "category_id": "2",
+      "sellerName": "Risan Ahamed",
       "categoryName": "Hyundai",
       "model": "Hyundai 3 2015",
       "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q6.png",
@@ -37,6 +40,7 @@
     },
     {
       "category_id": "2",
+      "sellerName": "Risan Ahamed",
       "categoryName": "Hyundai",
       "model": "Hyundai OPTIMA 2015",
       "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/q5.png",
@@ -49,6 +53,7 @@
     },
     {
       "category_id": "3",
+      "sellerName": "Risan Ahamed",
       "categoryName": "Toyota",
       "model": "Toyota NX HYBRID 2014",
       "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/SUVs.png",
@@ -61,6 +66,7 @@
     },
     {
       "category_id": "3",
+      "sellerName": "Risan Ahamed",
       "categoryName": "Toyota",
       "model": "Toyota SILVERADO 1500 2015",
       "image":"https://budgetcars.ancorathemes.com/wp-content/uploads/2017/03/Pickup-Trucks.png",

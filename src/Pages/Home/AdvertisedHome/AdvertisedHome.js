@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import FlagIteams from '../../../CarDashboard/FlagIteams/FlagIteams';
 import CarBookingModal from '../../CarBookingModal/CarBookingModal';
 import AdvertiseHomeCard from './AdvertiseHomeCard';
 
@@ -34,6 +35,14 @@ const AdvertisedHome = () => {
             carModel={carModel}
             setcarModel={setcarModel}
             ></CarBookingModal>
+
+{
+            flag &&  
+            <FlagIteams
+            key={flag._id}
+            flag={flag}
+            ></FlagIteams>
+           }
             
         </div>
     );

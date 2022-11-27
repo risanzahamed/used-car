@@ -5,7 +5,7 @@ import CarDashboardLayout from '../../CarDashboardLayout/CarDashboardLayout';
 
 const AllUsers = () => {
 
-    const url = 'http://localhost:8000/users';
+    const url = 'https://used-car-website-server.vercel.app/users';
 
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
@@ -17,7 +17,7 @@ const AllUsers = () => {
     })
 
     const handleMakeAdmin = id =>{
-        fetch(`http://localhost:8000/users/admin/${id}`,{
+        fetch(`https://used-car-website-server.vercel.app/users/admin/${id}`,{
             method: 'PUT',
             headers:{
                 authorization : `bearer ${localStorage.getItem('accessToken')}`

@@ -5,12 +5,12 @@ import { AuthContext } from '../../../Contexts/AuthContext';
 import useToken from '../../../jwtHook/jwtHook';
 
 const Register = () => {
-    const { createUser, updateName } = useContext(AuthContext)
+    const { createUser, updateName, googleLogin } = useContext(AuthContext)
     const navigate = useNavigate()
-    const [createdUserEmail , setCreatedUserEmail] = useState('')
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail)
 
-    if(token){
+    if (token) {
         navigate('/')
     }
 
@@ -47,7 +47,7 @@ const Register = () => {
 
     const saveUser = (name, email, customer, seller) => {
         const user = { name, email, customer, seller }
-        fetch('http://localhost:8000/users', {
+        fetch('https://used-car-website-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -63,11 +63,11 @@ const Register = () => {
     }
 
 
-     // Seller Created
+    // Seller Created
 
     const saveSeller = (name, email, seller) => {
         const user = { name, email, seller }
-        fetch('http://localhost:8000/seller', {
+        fetch('https://used-car-website-server.vercel.app/seller', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -78,17 +78,17 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 setCreatedUserEmail(email)
-                
+
             })
     }
 
 
 
-     // Customer/Buyer Created
+    // Customer/Buyer Created
 
     const saveCustomer = (name, email, customer) => {
         const user = { name, email, customer }
-        fetch('http://localhost:8000/customer', {
+        fetch('https://used-car-website-server.vercel.app/customer', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -99,11 +99,26 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 setCreatedUserEmail(email)
-                
+
             })
     }
 
-    
+
+    const googleSignIn = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                toast('User login Successfully!')
+                console.log(user);
+                navigate('/')
+                
+            })
+            .catch(error => {
+                console.log(error)
+                toast.error('Something was wrong! Please try again!')
+            });
+    }
+
 
     return (
         <div>
@@ -135,21 +150,21 @@ const Register = () => {
                             <div className="flex-col hidden">
                                 <label className="text-sm font-bold text-gray-600 mb-1" for="password">Choose Your User Type</label>
                                 <div className="flex items-center space-x-2">
-                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="customer" value='customer' id="customer" />
+                                    <input className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="customer" value='customer' id="customer" />
                                     <label>customer</label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                    <input  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="seller" id="seller" value='seller' />
+                                    <input className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" type="checkbox" name="seller" id="seller" value='seller' />
                                     <label>Seller</label>
                                 </div>
                             </div>
 
                             <div>
 
-                                <input className='m-2' type="radio" name="customer" id="customer" value='customer'  />
+                                <input className='m-2' type="radio" name="customer" id="customer" value='customer' />
                                 <label htmlFor="customer">CUSTOMER</label>
 
-                                <input className='m-2' type="radio" name="seller" id="seller" value='seller'  />
+                                <input className='m-2' type="radio" name="seller" id="seller" value='seller' />
                                 <label htmlFor="seller" >Seller</label>
 
                             </div>
@@ -172,16 +187,14 @@ const Register = () => {
                                     <span className="bg-white px-3 text-sm">or continue via</span>
                                 </div>
                             </div>
-                            <div className="grid grid-cols-3 gap-3 text-xl">
-                                <div className="border-2 rounded-md p-3 cursor-pointer hover:border-gray-600">
-                                    <img className="mx-auto" src="https://img.icons8.com/material-rounded/24/000000/twitter.png" alt='' />
+                            <div className="grid grid-cols-1 gap-3 text-xl">
+                                <div onClick={googleSignIn} className="border-2 rounded-md p-3 cursor-pointer hover:border-gray-600">
+                                    <img className="mx-auto h-7 w-7"
+
+                                        src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/google-512.png"
+                                        alt='' />
                                 </div>
-                                <div className="border-2 rounded-md p-3 cursor-pointer hover:border-gray-600">
-                                    <img className="mx-auto" src="https://img.icons8.com/material-rounded/24/000000/facebook.png" alt='' />
-                                </div>
-                                <div className="border-2 rounded-md p-3 cursor-pointer hover:border-gray-600">
-                                    <img className="mx-auto" src="https://img.icons8.com/material-rounded/24/000000/linkedin--v2.png" alt='' />
-                                </div>
+
                             </div>
                         </div>
 

@@ -7,7 +7,7 @@ const MyProduct = () => {
 
     const [advertise , setAdvertise] = useState(false)
 
-    const url = 'http://localhost:8000/add-product';
+    const url = 'https://used-car-website-server.vercel.app/add-product';
 
     const { data: products = [], refetch } = useQuery({
         queryKey: ['add-product'],

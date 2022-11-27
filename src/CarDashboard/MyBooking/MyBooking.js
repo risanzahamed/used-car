@@ -6,7 +6,7 @@ import MyBookingCard from './MyBookingCard';
 const MyBooking = () => {
     const { user } = useContext(AuthContext)
     
-    const url = `http://localhost:8000/car-bookings?email=${user?.email}`
+    const url = `https://used-car-website-server.vercel.app/car-bookings?email=${user?.email}`
 
     const { data: car = [] } = useQuery({
         queryKey: ['car-bookings', user?.email],

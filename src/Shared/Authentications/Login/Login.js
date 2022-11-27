@@ -49,6 +49,7 @@ const googleSignIn = () => {
             const user = result.user;
             toast('User login Successfully!')
             console.log(user);
+            setLoginUserToken(user)
         })
         .catch(error => {
             console.log(error)
@@ -95,16 +96,14 @@ return (
                             <span className="bg-white px-3 text-sm">or continue via</span>
                         </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-3 text-xl">
+                    <div className="grid grid-cols-1 gap-3 text-xl">
                         <div onClick={googleSignIn} className="border-2 rounded-md p-3 cursor-pointer hover:border-gray-600">
-                            <img className="mx-auto" src="https://img.icons8.com/material-rounded/24/000000/twitter.png" alt='' />
+                            <img className="mx-auto h-7 w-7"
+                            
+                             src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/google-512.png" 
+                             alt='' />
                         </div>
-                        <div className="border-2 rounded-md p-3 cursor-pointer hover:border-gray-600">
-                            <img className="mx-auto" src="https://img.icons8.com/material-rounded/24/000000/facebook.png" alt='' />
-                        </div>
-                        <div className="border-2 rounded-md p-3 cursor-pointer hover:border-gray-600">
-                            <img className="mx-auto" src="https://img.icons8.com/material-rounded/24/000000/linkedin--v2.png" alt='' />
-                        </div>
+                        
                     </div>
                 </div>
 

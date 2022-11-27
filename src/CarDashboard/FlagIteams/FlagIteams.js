@@ -18,7 +18,7 @@ const FlagIteams = ({flag}) => {
         location
     }
 
-    fetch('http://localhost:8000/flag-items', {
+    fetch('https://used-car-website-server.vercel.app/flag-items', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

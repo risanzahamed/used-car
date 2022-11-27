@@ -45,18 +45,18 @@ const router = createBrowserRouter([
       {
         path: "/Blog",
         element: <Blog />,
-        loader: ({ params }) => fetch(`http://localhost:8000/category/${params.id}`)
+        loader: ({ params }) => fetch(`https://used-car-website-server.vercel.app/category/${params.id}`)
       },
       {
         path: "/category/:id",
         element: <PrivateRoutes><CategoryCar /></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:8000/category/${params.id}`)
+        loader: ({ params }) => fetch(`https://used-car-website-server.vercel.app/category/${params.id}`)
 
       },
       {
         path: "/our-cars",
         element: <OurCars />,
-        loader: async () => fetch('http://localhost:8000/car-details/')
+        loader: async () => fetch('https://used-car-website-server.vercel.app/car-details/')
 
       },
 
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/payment/:id',
         element: <Payment></Payment>,
-        loader: ({params}) => fetch(`http://localhost:8000/booking/${params.id}`)
+        loader: ({params}) => fetch(`https://used-car-website-server.vercel.app/booking/${params.id}`)
       },
       {
         path:'/dashboard/add-product',
@@ -107,12 +107,12 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/user/customer',
         element:<AllCustomer></AllCustomer>,
-        loader: ()=>fetch('http://localhost:8000/user/customer')
+        loader: ()=>fetch('https://used-car-website-server.vercel.app/user/customer')
       },
       {
         path: '/dashboard/user/seller',
         element: <AllSeller></AllSeller>,
-        loader: ()=>fetch('http://localhost:8000/user/seller')
+        loader: ()=>fetch('https://used-car-website-server.vercel.app/user/seller')
       }
     ]
   }

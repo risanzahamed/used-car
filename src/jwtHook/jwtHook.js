@@ -7,7 +7,7 @@ const useToken = email => {
 
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:8000/jwt?email=${email}`)
+            fetch(`https://used-car-website-server.vercel.app/jwt?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

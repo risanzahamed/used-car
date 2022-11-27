@@ -19,7 +19,7 @@ const Advertise = ({ advertise }) => {
         location
     }
 
-    fetch('http://localhost:8000/advertise', {
+    fetch('https://used-car-website-server.vercel.app/advertise', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

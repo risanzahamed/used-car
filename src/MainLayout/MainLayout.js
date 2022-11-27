@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddProduct from "../CarDashboard/AddProduct/AddProduct";
+import AllCustomer from "../CarDashboard/AllCustomer/AllCustomer";
 import AllUsers from "../CarDashboard/AllUsers/AllUsers";
 import CarDashboardData from "../CarDashboard/CarDashboardData/CarDashboardData";
 import FlagedItemData from "../CarDashboard/FlagedItemData/FlagedItemData";
@@ -7,7 +8,7 @@ import FlagIteams from "../CarDashboard/FlagIteams/FlagIteams";
 import MyBooking from "../CarDashboard/MyBooking/MyBooking";
 import MyProduct from "../CarDashboard/MyProduct/MyProduct";
 import Payment from "../CarDashboard/Payment/Payment";
-import SellerMyProduct from "../CarDashboard/SellerMyProduct/SellerMyProduct";
+import SellerMyProduct from "../CarDashboard/AllSeller/AllSeller";
 import CarDashboardLayout from "../CarDashboardLayout/CarDashboardLayout";
 import About from "../Pages/About/About";
 import Blog from "../Pages/Blog/Blog";
@@ -21,6 +22,7 @@ import SellerRoute from "../Routes/SellerRoute";
 import Login from "../Shared/Authentications/Login/Login";
 import Register from "../Shared/Authentications/Register/Register";
 import Root from "./Root/Root";
+import AllSeller from "../CarDashboard/AllSeller/AllSeller";
 
 const router = createBrowserRouter([
   {
@@ -90,10 +92,6 @@ const router = createBrowserRouter([
         element: <AdminRoute><AllUsers/></AdminRoute>,
       },
       {
-        path:'/dashboard/seller',
-        element: <SellerMyProduct></SellerMyProduct>,
-      },
-      {
         path:'/dashboard/payment/:id',
         element: <Payment></Payment>,
         loader: ({params}) => fetch(`http://localhost:8000/booking/${params.id}`)
@@ -105,6 +103,16 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/my-product',
         element: <MyProduct/>
+      },
+      {
+        path: '/dashboard/user/customer',
+        element:<AllCustomer></AllCustomer>,
+        loader: ()=>fetch('http://localhost:8000/user/customer')
+      },
+      {
+        path: '/dashboard/user/seller',
+        element: <AllSeller></AllSeller>,
+        loader: ()=>fetch('http://localhost:8000/user/seller')
       }
     ]
   }

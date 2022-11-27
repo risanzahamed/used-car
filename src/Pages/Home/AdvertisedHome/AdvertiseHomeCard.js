@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AdvertiseHomeCard = ({ advertise }) => {
+const AdvertiseHomeCard = ({ advertise,setcarModel, setFlag }) => {
 
     const { image, model, category, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = advertise
 
@@ -34,6 +34,19 @@ const AdvertiseHomeCard = ({ advertise }) => {
                             {description}
                         </p>
                     </div>
+                    <div className='flex mt-10 justify-between'>
+                            <label
+                                htmlFor="car-modal"
+                                className="btn"
+                                onClick={() => setcarModel(advertise)}
+
+                            >Book Now</label>
+
+                            <button 
+                            className='btn btn-secondary'
+                            onClick={() => setFlag(advertise)}
+                            >Report To Admin</button>
+                        </div>
                 </div>
 
             </div> 

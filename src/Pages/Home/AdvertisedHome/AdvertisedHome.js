@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import CarBookingModal from '../../CarBookingModal/CarBookingModal';
 import AdvertiseHomeCard from './AdvertiseHomeCard';
 
 const AdvertisedHome = () => {
+
+    const [carModel, setcarModel] = useState({})
+    const [flag, setFlag] = useState(false)
 
     const [advertise, setAdvertise] = useState([])
 
@@ -20,9 +24,17 @@ const AdvertisedHome = () => {
                     advertise.map(advertise => <AdvertiseHomeCard
                         key={advertise._id}
                         advertise={advertise}
+                        setcarModel={setcarModel}
+                        setFlag={setFlag}
                     ></AdvertiseHomeCard>)
                 }
             </div>
+
+            <CarBookingModal
+            carModel={carModel}
+            setcarModel={setcarModel}
+            ></CarBookingModal>
+            
         </div>
     );
 };

@@ -78,7 +78,7 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 setCreatedUserEmail(email)
-                toast.success('Seller created')
+                
             })
     }
 
@@ -99,7 +99,7 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 setCreatedUserEmail(email)
-                toast.success('Customer created')
+                
             })
     }
 

@@ -14,9 +14,6 @@ const FlagedItemData = () => {
     },[])
 
 
-    
-    // loader: ()=> fetch('')
-
 
     return (
         <div>

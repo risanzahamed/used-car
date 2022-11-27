@@ -5,6 +5,7 @@ import CarDashboardData from "../CarDashboard/CarDashboardData/CarDashboardData"
 import FlagedItemData from "../CarDashboard/FlagedItemData/FlagedItemData";
 import FlagIteams from "../CarDashboard/FlagIteams/FlagIteams";
 import MyBooking from "../CarDashboard/MyBooking/MyBooking";
+import MyProduct from "../CarDashboard/MyProduct/MyProduct";
 import Payment from "../CarDashboard/Payment/Payment";
 import SellerMyProduct from "../CarDashboard/SellerMyProduct/SellerMyProduct";
 import CarDashboardLayout from "../CarDashboardLayout/CarDashboardLayout";
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/add-product',
         element: <AddProduct/>
+      },
+      {
+        path:'/dashboard/my-product',
+        element: <MyProduct/>
       }
     ]
   }

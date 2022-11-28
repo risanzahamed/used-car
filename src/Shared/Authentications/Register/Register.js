@@ -108,9 +108,9 @@ const Register = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
+                
                 toast('User login Successfully!')
                 console.log(user);
-                navigate('/')
                 
             })
             .catch(error => {

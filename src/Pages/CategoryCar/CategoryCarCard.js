@@ -9,11 +9,13 @@ const CategoryCarCard = ({ car, setcarModel, setFlag }) => {
     const [isCustomer] = UseCustomer(user?.email)
 
     const { image, model,sellerName, categoryName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = car
+    
     return (
         <div>
             <div className="px-4 py-16 shadow-md rounded-md mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
 
                 <div>
+                    
                     <div className="max-w-md sm:mx-auto sm:text-center">
                         <div className="flex items-center justify-center w-full mb-4 bg-indigo-50 ">
                             <img src={image} alt="" srcSet="" />

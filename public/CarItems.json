@@ -64,6 +64,21 @@
       "postDate":"10 may 2022",
       "description":"My Model is Toyota NX HYBRID 2014. I was buy this 26 Month, 19 days ago. I want sell this because i want to buy a new model car."
     },
+
+    {
+      "category_id": "3",
+      "sellerName": "Risan Ahamed",
+      "categoryName": "Toyota",
+      "model": "Toyota HKna",
+      "image":"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2FyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "location":"Chottogram, Agrabad",
+      "originalPrice":"200",
+      "resalePrice":"150",
+      "yearsOfUse":"26 Month, 19 days",
+      "postDate":"10 may 2022",
+      "description":"My Model is Toyota NX HYBRID 2014. I was buy this 26 Month, 19 days ago. I want sell this because i want to buy a new model car."
+    },
+
     {
       "category_id": "3",
       "sellerName": "Risan Ahamed",

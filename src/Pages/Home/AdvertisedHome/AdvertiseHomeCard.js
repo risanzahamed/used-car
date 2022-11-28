@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthContext';
+import UseCustomer from '../../UseCustomer/UseCustomer';
 
 const AdvertiseHomeCard = ({ advertise,setcarModel, setFlag }) => {
 
     const { user } = useContext(AuthContext)
+
+    const [isCustomer] = UseCustomer(user?.email)
 
     const { image, model, category,sellerName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = advertise
 
@@ -48,10 +51,12 @@ const AdvertiseHomeCard = ({ advertise,setcarModel, setFlag }) => {
 
                             >Book Now</label>
 
-                            <button 
-                            className='btn btn-secondary'
-                            onClick={() => setFlag(advertise)}
-                            >Report To Admin</button>
+                            {
+                                isCustomer && <button 
+                                className='btn btn-secondary'
+                                onClick={() => setFlag(advertise)}
+                                >Report To Admin</button>
+                            }
                         </div>
                 </div>
 

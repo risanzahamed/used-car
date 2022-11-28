@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import FlagIteams from '../../CarDashboard/FlagIteams/FlagIteams';
+import { AuthContext } from '../../Contexts/AuthContext';
+import UseCustomer from '../UseCustomer/UseCustomer';
 
 const CategoryCarCard = ({ car, setcarModel, setFlag }) => {
+
+    const {user} = useContext(AuthContext)
+    const [isCustomer] = UseCustomer(user?.email)
+
     const { image, model,sellerName, categoryName, description, resalePrice, originalPrice, postDate, yearsOfUse, location } = car
     return (
         <div>
@@ -39,10 +45,14 @@ const CategoryCarCard = ({ car, setcarModel, setFlag }) => {
 
                             >Book Now</label>
 
-                            <button 
-                            className='btn btn-secondary'
-                            onClick={() => setFlag(car)}
-                            >Report To Admin</button>
+                            {
+                                isCustomer &&  <button 
+                                className='btn btn-secondary'
+                                onClick={() => setFlag(car)}
+                                >Report To Admin</button>
+                            }
+
+                            
                         </div>
                     </div>
 

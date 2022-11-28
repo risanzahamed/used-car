@@ -1,23 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../Contexts/AuthContext';
 import Advertise from '../Advertise/Advertise';
 import MyProductCard from './MyProductCard';
 
 const MyProduct = () => {
 
+    const {user} = useContext(AuthContext)
+
     const [advertise , setAdvertise] = useState(false)
 
-    const url = 'https://used-car-website-server.vercel.app/add-product';
+    
+
+    const url = `https://used-car-website-server.vercel.app/add-product?email=${user?.email}`
 
     const { data: products = [], refetch } = useQuery({
-        queryKey: ['add-product'],
+        queryKey: ['add-product', user?.email],
         queryFn: async () => {
-            const res = await fetch(url)
+            const res = await fetch(url, {
+                headers:{
+                    authorization :`bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
             const data = await res.json()
             return data
         }
     })
-    
+
+    console.log(products);
+
 
     return (
         <div>

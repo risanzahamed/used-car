@@ -21,3 +21,8 @@ On the seller, if anyone create about for sell product they can add product, adv
 On the admin,  If anyone is admin in the site that admin will see the dashboard with Flaged Items, Seller, Customer,  All Users Route.
 
 
+adminEmail: <risanahmed048@gmail.com>
+
+adminPassword: <123456>
+
+

@@ -11,6 +11,7 @@ const Login = () => {
     const navigate = useNavigate()
     const [loginUserToken, setLoginUserToken] = useState('')
     const [token] = useToken(loginUserToken)
+    const [errorpassword, seterrorpassword] = useState()
 
     if(token){
         navigate('/')
@@ -22,6 +23,10 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        if(password.length < 6){
+            seterrorpassword('password should be 6 characters')
+        }
 
         Userlogin(email, password)
             .then(result => {
@@ -35,6 +40,7 @@ const Login = () => {
             .catch(error => {
                 console.log(error)
                 toast.error('Something was wrong! Please try again!')
+                
                 form.reset()
             });
     
@@ -87,9 +93,11 @@ return (
                             <Link className="text-indigo-600">Forgot your Password?</Link>
                         </div>
                     </div>
+
                     <div>
                         <button className="w-full bg-indigo-600 text-white rounded-md p-2">Sign in</button>
                     </div>
+                    <p className='text-red-600 font-semibold'>{errorpassword}</p>
                     <div className="relative pb-2">
                         <div className="absolute top-0 left-0 w-full border-b"></div>
                         <div className="absolute -top-3 left-0 w-full text-center">

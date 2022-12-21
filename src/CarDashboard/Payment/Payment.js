@@ -7,9 +7,7 @@ import Loading from '../../Shared/Loading/Loading';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
-const key = process.env.REACT_APP_STRIPE_KEY
-console.log(key);
-console.log(stripePromise);
+
 const Payment = () => {
 
     const data = useLoaderData()

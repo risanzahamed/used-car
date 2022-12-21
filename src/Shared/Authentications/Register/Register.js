@@ -8,6 +8,7 @@ const Register = () => {
     const { createUser, updateName, googleLogin } = useContext(AuthContext)
     const navigate = useNavigate()
     const [createdUserEmail, setCreatedUserEmail] = useState('')
+    const [errorpassword, seterrorpassword] = useState()
     const [token] = useToken(createdUserEmail)
 
     if (token) {
@@ -21,9 +22,12 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        if(password.length < 6){
+            seterrorpassword('password should be 6 characters')
+        }
+
         const customer = form.customer.value;
         const seller = form.seller.value;
-
 
         createUser(email, password)
             .then(result => {
@@ -33,13 +37,13 @@ const Register = () => {
                 saveCustomer(name, email, customer)
                 toast.success('User signUp Successfully!')
                 updateName(name)
-                form.reset()
+                // form.reset()
 
             })
             .catch(error => {
                 console.log(error)
                 toast.error('Something was wrong! Please try again!')
-                form.reset()
+                // form.reset()
             });
     }
 
@@ -181,6 +185,7 @@ const Register = () => {
                             <div>
                                 <input className="w-full bg-indigo-600 text-white rounded-md p-2" type="submit" value="Register" />
                             </div>
+                            <p className='text-red-600 font-semibold'>{errorpassword}</p>
                             <div className="relative pb-2">
                                 <div className="absolute top-0 left-0 w-full border-b"></div>
                                 <div className="absolute -top-3 left-0 w-full text-center">
